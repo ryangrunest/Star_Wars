@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Star Wars Game</title>
+
+	<!-- Link Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+	<!-- Link Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="Assets/style.css">
+	<!-- Link JQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container-fluid text-light">
+		<h1 class="text-center">Star Wars RPG</h1>
+	</div>
+
+	<!-- row of characters -->
+	<div class="container">
+	<div class="row text-center">
+
+		<!-- first character, Obi Wan -->
+		<div class="col">
+			<div id="obi-wan" class="card">
+			  <img src="Assets/imgs/obiwan.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			  	<h3>Obi-Wan Kenobi</h3>
+			    <p class="card-text">Starting Health: 120</p>
+			  </div>
+			</div>
+		</div>
+
+		<!-- second character, Luke Skywalker -->
+		<div class="col">
+			<div id="luke-skywalker" class="card">
+			  <img src="Assets/imgs/skywalker.jpeg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			  	<h3>Luke Skywalker</h3>
+			    <p class="card-text">Starting Health: 100</p>
+			  </div>
+			</div>
+		</div>
+
+		<!-- third character, Darth Sidious -->
+		<div class="col">
+			<div id="darth-sidious" class="card">
+			  <img src="Assets/imgs/sidious.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			  	<h3>Darth Sidious</h3>
+			    <p class="card-text">Starting Health: 150</p>
+			  </div>
+			</div>
+		</div>
+
+		<!-- fourth character, Darth Maul -->
+		<div class="col">
+			<div id="darth-maul" class="card">
+			  <img src="Assets/imgs/darthmaul.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			  	<h3>Darth Maul</h3>
+			    <p class="card-text">Starting Health: 100</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- Character pick -->
+	<div class="row character-content text-center mt-5">
+		<div class="col">
+			<h3>Your Character: <span class="your-character"></span></h3>
+			<h4 class="character-health"></h4>
+		</div>
+		<div class="col">
+			<h3>Your Opponent: <span class="opponent"></span></h3>
+			<h4 class="opponent-health"></h4>
+		</div>
+	</div>
+
+	<!-- Link JS -->
+	<script type="text/javascript" src="Assets/script.js"></script>
+
+	<!--Link Popper.js, and Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+</body>
+</html>
