@@ -8,32 +8,30 @@ $('body').append(attackButton);
 // objects for characters 
 var obiWan = {
 	health: 120,
-	attack: function() {
-		return Math.floor((Math.random() * (20 - 1) + 1))
-	},
-	defeated: 'no'
+	attack: 9,
+	defeated: 'no',
+	object: '<div class="col-3"><div id="obi-wan" class="card"><img src="Assets/imgs/obiwan.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Obi-Wan Kenobi</h3><p class="card-text">Health: 120</p></div></div></div>'
 };
 var luke = {
 	health: 100,
-	attack: function() {
-		return Math.floor((Math.random() * (22 - 1) + 1))
-	},
-	defeated: 'no'
+	attack: 10,
+	defeated: 'no',
+	object: '<div class="col-3"><div id="luke-skywalker" class="card"><img src="Assets/imgs/skywalker.jpeg" class="card-img-top" alt="..."><div class="card-body"><h3>Luke Skywalker</h3><p class="card-text">Health: 100</p></div></div></div>'
 };
 var sidious = {
 	health: 150,
-	attack: function() {
-		return Math.floor((Math.random() * (15 - 1) + 1))
-	},
-	defeated: 'no'
+	attack: 7,
+	defeated: 'no',
+	object: '<div class="col-3"><div id="darth-sidious" class="card"><img src="Assets/imgs/sidious.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Darth Sidious</h3><p class="card-text">Health: 150</p></div></div></div>'
 };
 var maul = {
 	health: 100,
-	attack: function() {
-		return Math.floor((Math.random() * (22 - 1) + 1))
-	},
-	defeated: 'no'
+	attack: 10,
+	defeated: 'no',
+	object: '<div class="col-3"><div id="darth-maul" class="card"><img src="Assets/imgs/darthmaul.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Darth Maul</h3><p class="card-text">Health: 100</p></div></div></div>'
 };
+
+$(".character-container").append(obiWan.object, luke.object, sidious.object, maul.object);
 
 // declare empty character and opponent objects
 var character = {};
@@ -130,8 +128,8 @@ $('#attack-button').on("click", function() {
 		$('#attack-button').addClass('disabled');
 	} else {
 	// update variables
-	opponent.health = opponent.health - character.attack();
-	character.health = character.health - opponent.attack();
+	opponent.health = opponent.health - character.attack;
+	character.health = character.health - opponent.attack;
 	// update ui
 	$('.character-health').text('');
 	$('.character-health').append('Health: ' + character.health);
