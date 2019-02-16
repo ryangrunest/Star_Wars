@@ -8,32 +8,35 @@ var attackButton = document.querySelector('#attack-button');
 // objects for characters 
 var obiWan = {
 	health: 120,
-	attack: 9,
+	attack: 1,
 	defeated: 'no',
 	image: '<img src="Assets/imgs/obiwan.jpg" alt="...">',
 	object: '<div class="col"><div id="obi-wan" class="card"><img src="Assets/imgs/obiwan.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Obi-Wan Kenobi</h3><p class="card-text">Health: 120</p></div></div></div>'
 };
 var luke = {
 	health: 100,
-	attack: 10,
+	attack: 1,
 	defeated: 'no',
 	image: '<img src="Assets/imgs/skywalker.jpeg"/>',
 	object: '<div class="col"><div id="luke-skywalker" class="card"><img src="Assets/imgs/skywalker.jpeg" class="card-img-top" alt="..."><div class="card-body"><h3>Luke Skywalker</h3><p class="card-text">Health: 100</p></div></div></div>'
 };
 var sidious = {
 	health: 150,
-	attack: 7,
+	attack: 1,
 	defeated: 'no',
 	image: '<img src="Assets/imgs/sidious.jpg"/>',
 	object: '<div class="col"><div id="darth-sidious" class="card"><img src="Assets/imgs/sidious.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Darth Sidious</h3><p class="card-text">Health: 150</p></div></div></div>'
 };
 var maul = {
 	health: 100,
-	attack: 10,
+	attack: 1,
 	defeated: 'no',
 	image: '<img src= "Assets/imgs/darthmaul.jpg"/>',
 	object: '<div class="col"><div id="darth-maul" class="card"><img src="Assets/imgs/darthmaul.jpg" class="card-img-top" alt="..."><div class="card-body"><h3>Darth Maul</h3><p class="card-text">Health: 100</p></div></div></div>'
 };
+
+// base attack variable;
+var baseAttack;
 
 
 // adding character cards to html doc
@@ -56,6 +59,7 @@ $("#obi-wan").on("click", function() {
 		// push char object to character
 		character.health = obiWan.health;
 		character.attack = obiWan.attack;
+		baseAttack = obiWan.attack;
 		// update ui with health
 		$('.character-health').append('Health: ' + character.health);
 	} else if ($(".your-character").find('img').length === 1 && $(".opponent").find('img').length === 0) {// else place in opponent
@@ -77,6 +81,7 @@ $("#luke-skywalker").on("click", function() {
 		// push char object to character
 		character.health = luke.health;
 		character.attack = luke.attack;
+		baseAttack = luke.attack;
 		// update ui with health
 		$('.character-health').append('Health: ' + character.health);
 	} else if ($(".your-character").find('img').length === 1 && $(".opponent").find('img').length === 0) {// else place in opponent
@@ -98,6 +103,7 @@ $("#darth-sidious").on("click", function() {
 		// push char object to character
 		character.health = sidious.health;
 		character.attack = sidious.attack;
+		baseAttack = sidious.attack;
 		// update ui with health
 		$('.character-health').append('Health: ' + character.health);
 	} else if ($(".your-character").find('img').length === 1 && $(".opponent").find('img').length === 0) {// else place in opponent
@@ -119,6 +125,7 @@ $("#darth-maul").on("click", function() {
 		// push char object to character
 		character.health = maul.health;
 		character.attack = maul.attack;
+		baseAttack = maul.attack;
 		// update ui with health
 		$('.character-health').append('Health: ' + character.health);
 	} else if ($(".your-character").find('img').length === 1 && $(".opponent").find('img').length === 0) {// else place in opponent
@@ -135,6 +142,7 @@ $("#darth-maul").on("click", function() {
 // program attack button
 // on click
 $('#attack-button').on("click", function() {
+	character.attack += baseAttack;
 	// disabling button functionality if health is less than 1
 	if (opponent.health < 1 || character.health < 1) {
 		$('#attack-button').on("click", function() {
@@ -158,6 +166,8 @@ $('#attack-button').on("click", function() {
 		alert("you lost :(");
 	} else if (opponent.health < 1) {
 		alert("you won!");
+		$('.opponent-health').html('Health: ');
+		$('.opponent').html('');
 	};
 });
 
